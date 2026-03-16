@@ -24,7 +24,7 @@ export function parseSMS(raw: string): SMSRecord[] {
   return results;
 }
 
-export function parseExcelPaste(raw: string): POSRecord[] {
+export function parseExcelPaste(raw: string, storeName: string): POSRecord[] {
   const results: POSRecord[] = [];
   const lines = raw.split("\n");
 
@@ -34,7 +34,7 @@ export function parseExcelPaste(raw: string): POSRecord[] {
       const name = parts[0].trim();
       const amount = parseInt(parts[1].replace(/,/g, ""), 10);
       if (name && !isNaN(amount)) {
-        results.push({ id: crypto.randomUUID(), name, amount });
+        results.push({ id: crypto.randomUUID(), storeName, name, amount });
       }
     }
   }

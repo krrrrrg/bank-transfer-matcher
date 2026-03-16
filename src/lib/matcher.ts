@@ -22,19 +22,23 @@ export function matchRecords(
       usedSMS.add(foundIdx);
       const sms = smsData[foundIdx];
       results.push({
+        storeName: pos.storeName,
         posName: pos.name,
         posAmount: pos.amount,
         smsName: sms.name,
         smsAmount: sms.amount,
+        smsDate: sms.date,
         smsTime: `${sms.date} ${sms.time}`,
         status: "matched",
       });
     } else {
       results.push({
+        storeName: pos.storeName,
         posName: pos.name,
         posAmount: pos.amount,
         smsName: "-",
         smsAmount: null,
+        smsDate: "-",
         smsTime: "-",
         status: "unmatched",
       });
@@ -45,10 +49,12 @@ export function matchRecords(
   for (let i = 0; i < smsData.length; i++) {
     if (usedSMS.has(i)) continue;
     results.push({
+      storeName: "-",
       posName: "-",
       posAmount: null,
       smsName: smsData[i].name,
       smsAmount: smsData[i].amount,
+      smsDate: smsData[i].date,
       smsTime: `${smsData[i].date} ${smsData[i].time}`,
       status: "unmatched",
     });
