@@ -138,10 +138,10 @@ export default function Home() {
             <TableRow>
               <TableHead className="w-10">#</TableHead>
               <TableHead>매장</TableHead>
-              <TableHead>POS 이름</TableHead>
-              <TableHead className="text-right">POS 금액</TableHead>
               <TableHead>은행 이름</TableHead>
               <TableHead className="text-right">은행 금액</TableHead>
+              <TableHead>POS 이름</TableHead>
+              <TableHead className="text-right">POS 금액</TableHead>
               <TableHead>입금 시간</TableHead>
               <TableHead>상태</TableHead>
             </TableRow>
@@ -151,16 +151,16 @@ export default function Home() {
               <TableRow key={i}>
                 <TableCell className="text-muted-foreground">{i + 1}</TableCell>
                 <TableCell className="font-medium">{r.storeName}</TableCell>
-                <TableCell className="font-medium">{r.posName}</TableCell>
-                <TableCell className="text-right font-mono">
-                  {r.posAmount != null
-                    ? `${r.posAmount.toLocaleString()}원`
-                    : "-"}
-                </TableCell>
                 <TableCell className="font-medium">{r.smsName}</TableCell>
                 <TableCell className="text-right font-mono">
                   {r.smsAmount != null
                     ? `${r.smsAmount.toLocaleString()}원`
+                    : "-"}
+                </TableCell>
+                <TableCell className="font-medium">{r.posName}</TableCell>
+                <TableCell className="text-right font-mono">
+                  {r.posAmount != null
+                    ? `${r.posAmount.toLocaleString()}원`
                     : "-"}
                 </TableCell>
                 <TableCell className="text-muted-foreground">
